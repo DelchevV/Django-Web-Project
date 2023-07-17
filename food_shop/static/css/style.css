@@ -1,0 +1,20 @@
+.container{
+    height: 400px;
+    border: 1px solid black;
+    margin: 100px auto;
+    display:  flex;
+    align-content: center;
+    justify-content: center;
+}
+.container form{
+    margin-top: 20px;
+}
+.container input{
+
+    border-radius: 10px;
+}
+.container .mb-3{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}

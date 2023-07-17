@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< HEAD:food_shop/.idea/dataSources.xml
+    <data-source source="LOCAL" name="db" uuid="71674db1-f9ab-425c-b095-a3ceff995f18">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\Pycharm\Django-Web-Project\food_shop\db.sqlite3</jdbc-url>
+=======
+    <data-source source="LOCAL" name="db" uuid="b4dcd2f2-874b-4d22-be9e-fbb9a03bcef0">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\Pycharm\Django-Web-Project\task_manager\db.sqlite3</jdbc-url>
+>>>>>>> 89d0f602c74e196bbba2283e27f5d4fa20366081:task_manager/.idea/dataSources.xml
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.40.1/sqlite-jdbc-3.40.1.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
