@@ -1,9 +1,10 @@
 from django.contrib.auth import views as auth_views, login, authenticate
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from .models import CustomUser
 
-from .forms import RegisterUserModelForm
+from .forms import RegisterUserModelForm, ProfileUpdateModelForm
 from django.views import generic as views
 
 
@@ -31,6 +32,26 @@ class Register(views.CreateView):
         return super().form_valid(form)
 
 
+class LogIn(auth_views.LoginView):
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        return kwargs
+
+    template_name = 'users/login.html'
+
+
+class LogOut(auth_views.LogoutView):
+    pass
+
+
+class ProfileUpdate(views.UpdateView):
+    model = CustomUser
+    form_class = ProfileUpdateModelForm
+    template_name = 'users/edit-user.html'
+    success_url = reverse_lazy('profile-details')
+
+
 def index(request):
     users = CustomUser.objects.all()
     context = {
@@ -39,14 +60,10 @@ def index(request):
     return render(request, 'common/index.html', context)
 
 
-class LogOut(auth_views.LogoutView):
-    pass
-
-
-class LogIn(auth_views.LoginView):
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        return kwargs
-
-    template_name = 'users/login.html'
+@login_required
+def profile_details(request):
+    user = request.user
+    context = {
+        'user': user
+    }
+    return render(request, 'users/profile-details.html', context)
