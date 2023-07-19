@@ -18,6 +18,15 @@
     justify-content: space-between;
     gap: 10px;
 }
+
  .carousel-item.active{
      height: 88vh;
+ }
+
+ .card-container{
+     display: flex;
+     width: 80%;
+     margin: 50px auto;
+     gap: 2%;
+     align-content: center;
  }

@@ -1,6 +1,9 @@
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.contrib.auth import models as auth_models
+from django.contrib.auth import models as auth_models, get_user_model
+from django.conf import settings
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 
 def is_old_enough(value):
@@ -42,3 +45,59 @@ class CustomUser(auth_models.AbstractUser):
         null=True,
         max_length=250
     )
+
+
+class Recipe(models.Model):
+    CHOICES = (
+        ('hot', 'hot'),
+        ('cold', 'cold'),
+        ('frozen', 'frozen'),
+    )
+
+    title = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False
+    )
+    description = models.TextField(
+        null=False,
+        blank=False
+    )
+    ingredients = models.TextField(
+        null=False,
+        blank=False
+    )
+    instructions = models.TextField(
+        null=False,
+        blank=False
+    )
+    prep_time = models.PositiveIntegerField(
+        null=False,
+        blank=False,
+    )  # in minutes
+    cook_time = models.PositiveIntegerField(
+        null=False,
+        blank=False,
+    )
+    serving_way = models.CharField(
+        max_length=20,
+        choices=CHOICES,
+        null=False,
+        blank=False
+    )
+    image_url = models.URLField(
+        blank=False,
+        null=False,
+    )
+    # author = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL,
+    #     on_delete=models.CASCADE
+    # )
+
+    author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True)
+
+
+@receiver(pre_save, sender=Recipe)
+def set_recipe_author(sender, instance, **kwargs):
+    if not instance.author:
+        instance.author = instance._current_user

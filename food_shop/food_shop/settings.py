@@ -73,6 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'food_shop.wsgi.application'
 
 AUTH_USER_MODEL = 'food_app.CustomUser'
+LOGIN_URL=reverse_lazy('login-user')
 LOGOUT_REDIRECT_URL = reverse_lazy('index')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 

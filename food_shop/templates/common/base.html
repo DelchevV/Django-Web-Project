@@ -24,7 +24,8 @@
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
                 {% if user.is_authenticated %}
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="{% url 'dashboard' %}">Recipes</a>
+                    <a class="nav-link" href="{% url 'create-recipe' %}">Add Recipe</a>
                     <a class="nav-link" href="{% url 'profile-details' %}">Profile</a>
                     <a class="nav-link" href="{% url 'logout-user' %}">Logout</a>
                 {% else %}

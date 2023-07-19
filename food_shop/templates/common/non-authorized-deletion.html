@@ -1,0 +1,7 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <h1>I am sorry, you can only delete recipes that you created!</h1>
+    <h3>You are not allowed to delete this recipe, it's not yours!</h3>
+    <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+{% endblock %}

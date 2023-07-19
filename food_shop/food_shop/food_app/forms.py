@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import CustomUser
+from .models import CustomUser, Recipe
 
 
 class RegisterUserModelForm(forms.ModelForm):
@@ -13,3 +13,34 @@ class ProfileUpdateModelForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ['age', 'birth_date', 'bio', 'profile_picture', 'first_name', 'last_name', ]
+
+
+class RecipeModelForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = '__all__'
+
+
+class RecipeCreateModelForm(RecipeModelForm):
+    class Meta:
+        model = Recipe
+        fields = '__all__'
+        exclude=['author']
+
+    def __init__(self, *args, **kwargs):
+        self._current_user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        recipe = super().save(commit=False)
+
+        if not recipe.author:
+            recipe.author = self._current_user
+
+        if commit:
+            recipe.save()
+        return recipe
+
+
+class RecipeEditModel(RecipeModelForm):
+    pass

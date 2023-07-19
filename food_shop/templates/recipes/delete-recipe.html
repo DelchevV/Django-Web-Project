@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <h1>Confirm Recipe Deletion</h1>
+    {% if user.is_authenticated and user == object.author %}
+        <p>Are you sure you want to delete the recipe: {{ object.title }}?</p>
+        <form method="post" action="{% url 'delete-recipe' pk=object.pk %}">
+            {% csrf_token %}
+            <input type="submit" value="Confirm Deletion">
+        </form>
+        <a href="{% url 'dashboard' %}">Cancel</a>
+    {% else %}
+        <p>Sorry, you do not have permission to delete this recipe.</p>
+        <a href="{% url 'dashboard' %}">Back to Recipes</a>
+    {% endif %}
+{% endblock %}
