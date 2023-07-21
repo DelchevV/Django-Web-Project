@@ -1,6 +1,28 @@
 {% extends 'common/base.html' %}
 {% block content %}
-    <h1>{{ user.username }}</h1>
-    <img src="{{ user.profile_picture}}" alt="my image">
-    <a href="{% url 'profile-edit' pk=user.pk%}"> Edit Profile</a>
+    <div class="profile">
+        <div class="profile__image">
+            <img src="{{ user.profile_picture }}" alt="User Avatar">
+        </div>
+        <h1 class="profile__name">{{ user.first_name }} {{ user.last_name }}</h1>
+
+
+        <p class="profile__username">{{ user.email }}</p>
+        <hr>
+        <h1 class="profile__username">Age: {{ user.age }}</h1>
+        <h1 class="profile__username">Bio: {{ user.bio }}</h1>
+        <h1 class="profile__username">Birth Date: {{ user.birth_date }}</h1>
+
+        <h1 class="profile__username"><small>Date Joined: {{ user.date_joined }}</small></h1>
+
+        <div class="profile__details">
+            <a href="{% url 'profile-edit' pk=user.pk %}" class="btn btn-primary">Edit Profile</a>
+
+            {#            TODO  make deletion on user profile #}
+            <a href="{% url 'profile-edit' pk=user.pk %}" class="btn btn-primary">Delete Profile</a>
+        </div>
+
+        <!-- Rest of the content -->
+    </div>
+
 {% endblock %}

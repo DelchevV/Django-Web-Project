@@ -1,30 +1,20 @@
 {% extends 'common/base.html' %}
 {% block content %}
-
     <div class="card-container">
         {% for recipe in recipes %}
-            <div class="card" style="width: 18rem;">
-                <img src="{{ recipe.image_url }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ recipe.title }}</h5>
-                    <p class="card-text">{{ recipe.description }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ recipe.ingredients }}</li>
-                    <li class="list-group-item">{{ recipe.instructions }}</li>
-                    <li class="list-group-item">{{ recipe.prep_time }}</li>
-                    {% if recipe.cook_time >= 1 %}
-                        <li class="list-group-item">{{ recipe.cook_time }}</li>
-                    {% endif %}
-                    <li class="list-group-item">{{ recipe.serving_way }}</li>
-                    <li class="list-group-item">{{ recipe.author }}</li>
-                </ul>
-                <div class="card-body">
-                    <a href="{% url 'edit-recipe' pk=recipe.pk %}" class="card-link">Edit Recipe</a>
-                    <a href="{% url 'delete-recipe' pk=recipe.pk %}" class="card-link">Delete Recipe</a>
-                </div>
+        <div class="card" style="width: 18rem;">
+            {% if recipe.image_url %}
+            <img src="{{ recipe.image_url }}" class="card-img-top" alt="...">
+            {% else %}
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80" class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text"><b>Preparation time:</b> {{ recipe.prep_time }} minutes</p>
+                <a href="{% url 'details' pk=recipe.pk %}" class="btn btn-primary">Details</a>
             </div>
-        {% endfor %}
+        </div>
+    {% endfor %}
     </div>
 
 {% endblock %}

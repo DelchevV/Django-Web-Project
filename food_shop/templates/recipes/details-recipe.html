@@ -1,0 +1,39 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div class="details-card-container">
+        <div class="card mb-3" style="max-width: 80%;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if recipe.image_url %}
+                    <img src="{{ recipe.image_url }}" class="card-img-top" alt="...">
+                {% else %}
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80"
+                         class="card-img-top" alt="...">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ recipe.title }}</h5>
+                    <p class="card-text">{{ recipe.description }}</p>
+                    <p class="card-text">{{ recipe.ingredients }}</p>
+                    <p class="card-text">{{ recipe.instructions }}</p>
+                    <p class="card-text">{{ recipe.prep_time }}</p>
+                    <p class="card-text">{{ recipe.cook_time }}</p>
+                    <p class="card-text">{{ recipe.serving_way }}</p>
+                    {% if recipe.author.pk == user.pk %}
+                    <p class="card-text">
+                        <a href="{% url 'edit-recipe' pk=recipe.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'delete-recipe' pk=recipe.pk %}" class="btn btn-primary">Delete</a>
+                    </p>
+                    {% endif %}
+                    <p class="card-text"><small class="text-body-secondary">Created by: {{ recipe.author }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

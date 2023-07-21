@@ -125,3 +125,16 @@ class RecipeDelete(LoginRequiredMixin, UserPassesTestMixin, views.DeleteView):
 
 def delete_error(request):
     return render(request, 'common/non-authorized-deletion.html')
+
+
+@login_required()
+def details(request, pk):
+    recipe = Recipe.objects.filter(pk=pk).get()
+    user = request.user
+    print()
+    print()
+    context = {
+        'recipe': recipe,
+        'user': user
+    }
+    return render(request, 'recipes/details-recipe.html', context)

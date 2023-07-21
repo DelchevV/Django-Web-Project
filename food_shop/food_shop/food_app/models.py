@@ -86,8 +86,8 @@ class Recipe(models.Model):
         blank=False
     )
     image_url = models.URLField(
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
     )
     # author = models.ForeignKey(
     #     settings.AUTH_USER_MODEL,
