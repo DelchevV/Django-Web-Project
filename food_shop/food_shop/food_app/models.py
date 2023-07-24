@@ -94,7 +94,7 @@ class Recipe(models.Model):
     #     on_delete=models.CASCADE
     # )
 
-    author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
 
 
 @receiver(pre_save, sender=Recipe)

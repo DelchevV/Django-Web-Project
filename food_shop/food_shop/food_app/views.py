@@ -138,3 +138,13 @@ def details(request, pk):
         'user': user
     }
     return render(request, 'recipes/details-recipe.html', context)
+
+
+class ProfileDelete(LoginRequiredMixin, UserPassesTestMixin, views.DeleteView):
+    model = CustomUser
+    template_name = "users/delete-user.html"
+    success_url = reverse_lazy('index')
+
+    def test_func(self):
+        # Check if the user making the request is the same user to be deleted
+        return self.get_object() == self.request.user
