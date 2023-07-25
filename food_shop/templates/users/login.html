@@ -19,18 +19,10 @@
 {#{% endblock %}#}
 
 {% block content %}
-    <div class="container">
-        <form
-            action="{% url 'login-user' %}" method="post">
+    <div class="form-container">
+        <form action="{% url 'login-user' %}" method="post">
 
-       <div class="mb-3">
-           <label for="{{ form.username }}">Username:</label>
-           {{ form.username }}
-       </div>
-        <div class="mb-3">
-           <label for="{{ form.password }}">Password:</label>
-           {{ form.password }}
-       </div>
+        {{ form.as_p }}
 
         <input type="hidden" value="{{ next }}" name="next"/>
 

@@ -101,3 +101,5 @@ class Recipe(models.Model):
 def set_recipe_author(sender, instance, **kwargs):
     if not instance.author:
         instance.author = instance._current_user
+
+# TODO create a model for menu, user reviews, contact us

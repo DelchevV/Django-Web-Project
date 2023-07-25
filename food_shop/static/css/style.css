@@ -1,3 +1,14 @@
+body{
+    background-size: cover;
+    background: url("https://wallpapers.com/images/hd/food-photography-background-iyvy1e8yztvry3g8.jpg") center;
+}
+nav{
+    background: antiquewhite;
+}
+nav .nav-link{
+    color: black;
+
+}
 .container {
     height: 400px;
     border: 1px solid black;
@@ -98,7 +109,13 @@
     justify-content: center;
     text-align: center;
 }
-
+.form-container{
+    border: 0;
+    border-radius:  5%;
+    background-image: url("https://cdn.pixabay.com/photo/2020/04/16/11/13/background-5050213_1280.png");
+    background-size: cover;
+    background-position: center;
+}
 .form-container form {
 
     width: 350px;

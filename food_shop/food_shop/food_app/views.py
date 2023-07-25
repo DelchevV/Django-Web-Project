@@ -148,3 +148,12 @@ class ProfileDelete(LoginRequiredMixin, UserPassesTestMixin, views.DeleteView):
     def test_func(self):
         # Check if the user making the request is the same user to be deleted
         return self.get_object() == self.request.user
+
+
+def dashboard_own(request):
+    user_pk = request.user.pk
+    recipes = Recipe.objects.filter(pk=user_pk).all()
+    context = {
+        "recipes": recipes
+    }
+    return render(request, 'recipes/dashboard.html', context)
