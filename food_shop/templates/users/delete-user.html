@@ -1,12 +1,16 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
-    <h1>Confirm account deletion</h1>
-    <h3>Hey {{ customuser.first_name }}! Are you sure you want to delete your profile?</h3>
-    <h3>All your recipes will be deleted too, keep that in mind!</h3>
-    <form method="post">
-        <button class="btn btn-danger" type="submit">Delete Account</button>
-        <a href="{% url 'profile-details' %}" class="btn btn-primary">Cancel</a>
-        {% csrf_token %}
-    </form>
+    <div class="delete-container">
+
+        <h1>Confirm account deletion</h1>
+        <h3>Hey {{ customuser.first_name }}! Are you sure you want to delete your profile?</h3>
+        <h3>All your recipes will be deleted too, keep that in mind!</h3>
+        <form method="post">
+            <button class="btn btn-danger" type="submit">Delete Account</button>
+            <a href="{% url 'profile-details' %}" class="btn btn-primary">Cancel</a>
+            {% csrf_token %}
+        </form>
+    </div>
+
 {% endblock %}

@@ -89,10 +89,6 @@ class Recipe(models.Model):
         blank=True,
         null=True,
     )
-    # author = models.ForeignKey(
-    #     settings.AUTH_USER_MODEL,
-    #     on_delete=models.CASCADE
-    # )
 
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
 

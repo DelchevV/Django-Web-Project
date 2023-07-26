@@ -1,12 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
 body{
     background-size: cover;
-    background: url("https://wallpapers.com/images/hd/food-photography-background-iyvy1e8yztvry3g8.jpg") center;
+    background: url("https://images.unsplash.com/photo-1615719413546-198b25453f85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZCUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60") center;
+    backdrop-filter: blur(5px);
 }
 nav{
-    background: antiquewhite;
+    background: #3586ff;
+    padding: 20px;
 }
 nav .nav-link{
-    color: black;
+    color: white;
+    padding: 10px 30px;
+}
+nav .nav-item:nth-child(5){
+    margin-left: 50%;
+}
+nav .nav-link:hover{
+    color: lightgoldenrodyellow;
+
+
 
 }
 .container {
@@ -40,9 +53,11 @@ nav .nav-link{
 .card-container {
     display: flex;
     width: 80%;
-    margin: 50px auto;
+    height: 90vh;
+    margin: 50px auto 200px auto;
     gap: 2%;
     align-content: center;
+
 }
 
 .card-container .card .card-img-top {
@@ -51,11 +66,13 @@ nav .nav-link{
 
 .profile {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 100px auto 200px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+
+
 }
 
 .profile__name {
@@ -112,9 +129,10 @@ nav .nav-link{
 .form-container{
     border: 0;
     border-radius:  5%;
-    background-image: url("https://cdn.pixabay.com/photo/2020/04/16/11/13/background-5050213_1280.png");
+    background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
     background-size: cover;
     background-position: center;
+    margin-bottom: 200px;
 }
 .form-container form {
 
@@ -133,3 +151,173 @@ nav .nav-link{
     height: 100px;
     width: 350px;
 }
+
+
+/*FOOTER STYLE*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+/*Index Page*/
+.index-container{
+    height: 150vh;
+    width: 100%;
+    background: #ffffff;
+}
+.index-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.index-title{
+    margin-top: 50px;
+    margin-left: 150px;
+    position: absolute;
+    width: 100px;
+    color: darkorange;
+    font-size: 40px;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: center;
+}
+.index-title span{
+    color: white;
+}
+
+
+/*Recipe Details*/
+.details-card-container{
+    margin: 100px auto 200px 200px;
+}
+.delete-container{
+    height: 90vh;
+    width: 40%;
+    padding:60px;
+    text-align: center;
+    margin: 20px auto 100px auto;
+    background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
+}
+
+

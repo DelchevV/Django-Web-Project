@@ -17,9 +17,8 @@
 
         <div class="profile__details">
             <a href="{% url 'profile-edit' pk=user.pk %}" class="btn btn-primary">Edit Profile</a>
-
-            {#            TODO  make deletion on user profile #}
             <a href="{% url 'profile-delete' pk=user.pk %}" class="btn btn-primary">Delete Profile</a>
+            <a href="" class="btn btn-primary">Give FeedBack</a>
         </div>
 
         <!-- Rest of the content -->
