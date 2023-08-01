@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import Register, LogOut, LogIn, index, profile_details, ProfileUpdate, RecipeCreateView, dashboard,RecipeEdit, RecipeDelete, delete_error, details, ProfileDelete, dashboard_own
+from .views import Register, LogOut, LogIn, index, profile_details, ProfileUpdate, RecipeCreateView, dashboard, \
+    RecipeEdit, RecipeDelete, delete_error, details, ProfileDelete, dashboard_own, FeedbackView
 
 urlpatterns = [
     path('', index, name='index'),
@@ -15,5 +16,6 @@ urlpatterns = [
     path('recipes/create/', RecipeCreateView.as_view(), name='create-recipe'),
     path('recipe/edit/<int:pk>', RecipeEdit.as_view(), name='edit-recipe'),
     path('recipe/delete/<int:pk>', RecipeDelete.as_view(), name='delete-recipe'),
-    path('recipe/delete/not-authotized', delete_error, name='delete-error')
+    path('recipe/delete/not-authotized', delete_error, name='delete-error'),
+    path('profile/feedback/', FeedbackView.as_view(), name='feedback')
 ]

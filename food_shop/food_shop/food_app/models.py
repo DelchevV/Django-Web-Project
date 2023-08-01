@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth import models as auth_models, get_user_model
 from django.conf import settings
@@ -97,5 +98,18 @@ class Recipe(models.Model):
 def set_recipe_author(sender, instance, **kwargs):
     if not instance.author:
         instance.author = instance._current_user
+
+
+class Feedback(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+@receiver(pre_save, sender=Feedback)
+def set_feedback_author(sender, instance, **kwargs):
+    if not instance.user:
+        instance.user = instance._current_user
 
 # TODO create a model for menu, user reviews, contact us

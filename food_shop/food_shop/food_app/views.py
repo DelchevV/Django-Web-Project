@@ -1,14 +1,16 @@
 from django.contrib.auth import views as auth_views, login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.http import HttpResponseForbidden, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from .models import CustomUser, Recipe
+from .models import CustomUser, Recipe, Feedback
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from .forms import RegisterUserModelForm, ProfileUpdateModelForm, RecipeModelForm, RecipeEditModel, \
-    RecipeCreateModelForm
+    RecipeCreateModelForm, FeedBackModelForm
 from django.views import generic as views
+from django.views.generic import FormView
 
 
 class Register(views.CreateView):
@@ -157,3 +159,22 @@ def dashboard_own(request):
         "recipes": recipes
     }
     return render(request, 'recipes/dashboard.html', context)
+
+
+class FeedbackView(LoginRequiredMixin, FormView):
+    template_name = 'feedback_email_form.html'
+    form_class = FeedBackModelForm
+    success_url = reverse_lazy('profile-details')  # Replace with the URL of the success page
+
+    def form_valid(self, form):
+
+        # Send the email using Google's SMTP settings
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        from_email = self.request.user.email # Replace with your Gmail email address
+        recipient_list = ['veselindelchev39@gmail.com',]
+
+        send_mail(subject, message, from_email, recipient_list)
+
+        # Redirect to the success page after sending the email
+        return super().form_valid(form)

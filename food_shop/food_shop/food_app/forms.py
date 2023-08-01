@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import CustomUser, Recipe
+from .models import CustomUser, Recipe, Feedback
 
 
 class RegisterUserModelForm(forms.ModelForm):
@@ -25,7 +25,7 @@ class RecipeCreateModelForm(RecipeModelForm):
     class Meta:
         model = Recipe
         fields = '__all__'
-        exclude=['author']
+        exclude = ['author']
 
     def __init__(self, *args, **kwargs):
         self._current_user = kwargs.pop('user', None)
@@ -44,3 +44,10 @@ class RecipeCreateModelForm(RecipeModelForm):
 
 class RecipeEditModel(RecipeModelForm):
     pass
+
+
+class FeedBackModelForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = '__all__'
+        exclude=['user']

@@ -14,7 +14,7 @@ nav .nav-link{
     padding: 10px 30px;
 }
 nav .nav-item:nth-child(5){
-    margin-left: 50%;
+    margin-left: 65%;
 }
 nav .nav-link:hover{
     color: lightgoldenrodyellow;
@@ -57,7 +57,10 @@ nav .nav-link:hover{
     margin: 50px auto 200px auto;
     gap: 2%;
     align-content: center;
+}
 
+.card-container .card{
+    height: 480px;
 }
 
 .card-container .card .card-img-top {
@@ -132,7 +135,7 @@ nav .nav-link:hover{
     background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
     background-size: cover;
     background-position: center;
-    margin-bottom: 200px;
+    margin-bottom: 300px;
 }
 .form-container form {
 
@@ -282,7 +285,7 @@ nav .nav-link:hover{
 
 /*Index Page*/
 .index-container{
-    height: 150vh;
+    height: 100vh;
     width: 100%;
     background: #ffffff;
 }
