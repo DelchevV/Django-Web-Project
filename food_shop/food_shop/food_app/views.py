@@ -1,9 +1,10 @@
 from django.contrib.auth import views as auth_views, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-from django.http import HttpResponseForbidden, HttpResponseRedirect
+from django.http import HttpResponseForbidden, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+import requests
 from .models import CustomUser, Recipe, Feedback, EBook, CookedFood, Chef
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -193,3 +194,37 @@ def chefs(request):
         'chefs': chefs
     }
     return render(request, 'chefs/dashboard.html', context)
+
+
+def books(request):
+    books = EBook.objects.all()
+    context = {
+        'books': books
+    }
+    return render(request, 'books/dashboard.html', context)
+
+
+def download_book(request, pk):
+    try:
+        # Retrieve the EBook object from the database using the given ebook_id
+        ebook = EBook.objects.get(pk=pk)
+
+        # Get the URL of the PDF file from the EBook object
+        pdf_url = ebook.url
+
+        # Send a GET request to the URL to get the PDF file
+        response = requests.get(pdf_url)
+
+        # Check if the request was successful and the content type is PDF
+        if response.status_code == 200 and response.headers['content-type'] == 'application/pdf':
+            # Set the appropriate content type for the response
+            response = HttpResponse(response.content, content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename="CookBook.pdf"'
+            return response
+        else:
+            # Handle the case when the file couldn't be downloaded
+            return HttpResponse('Error: PDF file not found or cannot be downloaded.', status=404)
+
+    except EBook.DoesNotExist:
+        # Handle the case when the EBook object does not exist in the database
+        return HttpResponse('Error: EBook not found.', status=404)

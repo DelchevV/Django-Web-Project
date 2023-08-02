@@ -14,12 +14,12 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">{{ recipe.title }}</h5>
-                    <p class="card-text">{{ recipe.description }}</p>
-                    <p class="card-text">{{ recipe.ingredients }}</p>
-                    <p class="card-text">{{ recipe.instructions }}</p>
-                    <p class="card-text">{{ recipe.prep_time }}</p>
-                    <p class="card-text">{{ recipe.cook_time }}</p>
-                    <p class="card-text">{{ recipe.serving_way }}</p>
+                    <p class="card-text"><b>Description: </b>{{ recipe.description }}</p>
+                    <p class="card-text"><b>Ingredients: </b>{{ recipe.ingredients }}</p>
+                    <p class="card-text"><b>Instructions: </b>{{ recipe.instructions }}</p>
+                    <p class="card-text"><b>Preparation time: </b>{{ recipe.prep_time }}min</p>
+                    <p class="card-text"><b>Cooking time: </b>{{ recipe.cook_time }}min</p>
+                    <p class="card-text"><b>Serving: </b>{{ recipe.serving_way }}</p>
                     {% if recipe.author.pk == user.pk %}
                     <p class="card-text">
                         <a href="{% url 'edit-recipe' pk=recipe.pk %}" class="btn btn-primary">Edit</a>

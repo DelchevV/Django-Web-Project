@@ -203,6 +203,10 @@ class Chef(models.Model):
 
 class EBook(models.Model):
     title = models.CharField(max_length=150, blank=False, null=False, validators=[is_only_letters])
+    url= models.URLField(
+        blank=False,
+        null=False
+    )
     description = models.TextField(blank=False, null=False)
     cover_image = models.URLField(blank=True, null=True)
     chef = models.ForeignKey(Chef, on_delete=models.CASCADE, blank=False, null=False)

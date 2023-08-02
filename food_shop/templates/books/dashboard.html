@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+
+    <div class="card-container">
+        {% for book in books %}
+        <div class="card" style="width: 18rem;">
+            {% if book.cover_image %}
+            <img src="{{ book.cover_image }}" class="card-img-top" alt="...">
+            {% else %}
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80" class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+
+                <p class="card-text"><b>Author: </b> {{ book.chef.first_name }}</p>
+                <p class="card-text"><b>Total Dishes: </b> {{ book.total_dishes }}</p>
+
+                <a href="{% url 'download-book' pk=book.pk %}" class="btn btn-primary">Download</a>
+                <a href="" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

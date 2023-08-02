@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap');
 
 body {
-    background-size: cover;
+
     background: url("https://images.unsplash.com/photo-1615719413546-198b25453f85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZCUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60") center;
     backdrop-filter: blur(5px);
+    background-size: cover;
 }
 
 nav {
@@ -334,7 +336,6 @@ nav .nav-link:hover {
 }
 
 /*MENU CSS*/
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap');
 
 /*body{ background:url(https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1776&q=80);*/
 /*  background-size:cover;*/
@@ -582,6 +583,10 @@ nav .nav-link:hover {
 {
 	color: #fff;
 	background: rgba(255,255,255,0);
+}
+
+.book{
+
 }
 
 
