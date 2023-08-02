@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from food_shop.food_app.models import CookedFood, Chef
+
+admin.site.register(CookedFood)
+admin.site.register(Chef)

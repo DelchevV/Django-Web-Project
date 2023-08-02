@@ -12,6 +12,12 @@ def is_old_enough(value):
         raise ValidationError('You have to be at least 12 years old to use this app!')
 
 
+def is_only_letters(value):
+    for ch in value:
+        if not ch.isalpha() and not ch == ' ':
+            raise ValidationError('Title must contains only letters!')
+
+
 # Create your models here.
 class CustomUser(auth_models.AbstractUser):
     age = models.PositiveIntegerField(
@@ -112,4 +118,98 @@ def set_feedback_author(sender, instance, **kwargs):
     if not instance.user:
         instance.user = instance._current_user
 
-# TODO create a model for menu, user reviews, contact us
+
+class CookedFood(models.Model):
+    CHOICES = (
+        ('Breakfast', 'Breakfast'),
+        ('Lunch', 'Lunch'),
+        ('Snack', 'Snack'),
+        ('Dinner', 'Dinner'),
+    )
+    food_img=models.URLField(
+        null=False,
+        blank=False,
+        default='https://images.unsplash.com/photo-1604135307399-86c6ce0aba8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80'
+    )
+    food_type = models.CharField(
+        choices=CHOICES,
+        max_length=10,
+        null=False,
+        blank=False
+    )
+    food_name = models.CharField(
+        max_length=50,
+        null=False,
+        blank=False,
+        validators=[is_only_letters]
+    )
+    description = models.TextField(
+        null=False,
+        blank=False
+    )
+    price = models.DecimalField(
+        blank=False,
+        null=False,
+        max_digits=10,
+        decimal_places=2
+    )
+
+
+class Chef(models.Model):
+    CHOICES = (
+        ('Pastry chef', 'Pastry chef'),
+        ('Line cook', 'Line cook'),
+        ('Chef', 'Chef'),
+        ('Sous chef', 'Sous chef'),
+        ('Culinary manager', 'Culinary manager'),
+        ('Executive chef', 'Executive chef'),
+    )
+    first_name = models.CharField(
+        max_length=100,
+        blank=False,
+        null=False
+    )
+    last_name = models.CharField(
+        max_length=100,
+        blank=False,
+        null=False
+    )
+
+    bio = models.TextField()
+    profile_picture = models.URLField(
+        blank=False,
+        null=False
+    )
+    date_of_birth = models.DateField(
+        blank=False,
+        null=False
+    )
+    nationality = models.CharField(
+        max_length=50,
+        blank=False,
+        null=False
+    )
+    chef_degree = models.CharField(
+        choices=CHOICES,
+        max_length=50,
+        blank=False,
+        null=False
+    )
+    cooked_dishes = models.PositiveIntegerField(
+        blank=False,
+        null=False
+    )
+
+
+class EBook(models.Model):
+    title = models.CharField(max_length=150, blank=False, null=False, validators=[is_only_letters])
+    description = models.TextField(blank=False, null=False)
+    cover_image = models.URLField(blank=True, null=True)
+    chef = models.ForeignKey(Chef, on_delete=models.CASCADE, blank=False, null=False)
+    total_dishes = models.PositiveIntegerField(default=0, blank=False, null=False)
+    total_breakfast_dishes = models.PositiveIntegerField(default=0, blank=False, null=False)
+    total_lunch_dishes = models.PositiveIntegerField(default=0, blank=False, null=False)
+    total_dinner_dishes = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    def __str__(self):
+        return self.title

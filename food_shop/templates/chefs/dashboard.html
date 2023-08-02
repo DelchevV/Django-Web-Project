@@ -1,0 +1,22 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div class="area-container">
+        {% for chef in chefs %}
+        <div class="image-area">
+		<div class="img-wrapper">
+			<img src="{{ chef.profile_picture }}" alt="Atul Prajapati">
+			<h2>{{ chef.first_name }} {{ chef.last_name }}</h2>
+			<ul>
+				<li>{{ chef.chef_degree }}</li>
+				<li>{{ chef.date_of_birth }}</li>
+				<li>{{ chef.nationality}}</li>
+				<li>Cooked {{chef.cooked_dishes}} Dishes</li>
+
+			</ul>
+		</div>
+	</div>
+       {% endfor %}
+    </div>
+
+
+{% endblock %}

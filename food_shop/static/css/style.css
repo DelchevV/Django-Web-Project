@@ -1,27 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
-body{
+body {
     background-size: cover;
     background: url("https://images.unsplash.com/photo-1615719413546-198b25453f85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZCUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60") center;
     backdrop-filter: blur(5px);
 }
-nav{
+
+nav {
     background: #3586ff;
     padding: 20px;
 }
-nav .nav-link{
+
+nav .nav-link {
     color: white;
     padding: 10px 30px;
 }
-nav .nav-item:nth-child(5){
-    margin-left: 65%;
+
+nav .nav-item:nth-child(6) {
+    margin-left: 50%;
 }
-nav .nav-link:hover{
+
+nav .nav-link:hover {
     color: lightgoldenrodyellow;
 
 
-
 }
+
 .container {
     height: 400px;
     border: 1px solid black;
@@ -59,7 +63,7 @@ nav .nav-link:hover{
     align-content: center;
 }
 
-.card-container .card{
+.card-container .card {
     height: 480px;
 }
 
@@ -129,14 +133,16 @@ nav .nav-link:hover{
     justify-content: center;
     text-align: center;
 }
-.form-container{
+
+.form-container {
     border: 0;
-    border-radius:  5%;
+    border-radius: 5%;
     background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
     background-size: cover;
     background-position: center;
     margin-bottom: 300px;
 }
+
 .form-container form {
 
     width: 350px;
@@ -159,142 +165,144 @@ nav .nav-link:hover{
 /*FOOTER STYLE*/
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 
-
 .footer {
-  position: relative;
-  width: 100%;
-  background: #3586ff;
-  min-height: 100px;
-  padding: 20px 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    position: relative;
+    width: 100%;
+    background: #3586ff;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .social-icon,
 .menu {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-  flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
 }
 
 .social-icon__item,
 .menu__item {
-  list-style: none;
+    list-style: none;
 }
 
 .social-icon__link {
-  font-size: 2rem;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
 }
+
 .social-icon__link:hover {
-  transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 
 .menu__link {
-  font-size: 1.2rem;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-  text-decoration: none;
-  opacity: 0.75;
-  font-weight: 300;
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
 }
 
 .menu__link:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .footer p {
-  color: #fff;
-  margin: 15px 0 10px 0;
-  font-size: 1rem;
-  font-weight: 300;
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .wave {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url("https://i.ibb.co/wQZVxxk/wave.png");
-  background-size: 1000px 100px;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("https://i.ibb.co/wQZVxxk/wave.png");
+    background-size: 1000px 100px;
 }
 
 .wave#wave1 {
-  z-index: 1000;
-  opacity: 1;
-  bottom: 0;
-  animation: animateWaves 4s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWaves 4s linear infinite;
 }
 
 .wave#wave2 {
-  z-index: 999;
-  opacity: 0.5;
-  bottom: 10px;
-  animation: animate 4s linear infinite !important;
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animate 4s linear infinite !important;
 }
 
 .wave#wave3 {
-  z-index: 1000;
-  opacity: 0.2;
-  bottom: 15px;
-  animation: animateWaves 3s linear infinite;
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWaves 3s linear infinite;
 }
 
 .wave#wave4 {
-  z-index: 999;
-  opacity: 0.7;
-  bottom: 20px;
-  animation: animate 3s linear infinite;
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animate 3s linear infinite;
 }
 
 @keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-positon-x: 0px;
+    }
 }
 
 @keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
+    0% {
+        background-position-x: -1000px;
+    }
+    100% {
+        background-positon-x: 0px;
+    }
 }
 
 /*Index Page*/
-.index-container{
+.index-container {
     height: 100vh;
     width: 100%;
     background: #ffffff;
 }
-.index-container img{
+
+.index-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.index-title{
+
+.index-title {
     margin-top: 50px;
     margin-left: 150px;
     position: absolute;
@@ -305,22 +313,277 @@ nav .nav-link:hover{
     font-weight: bold;
     text-align: center;
 }
-.index-title span{
+
+.index-title span {
     color: white;
 }
 
 
 /*Recipe Details*/
-.details-card-container{
+.details-card-container {
     margin: 100px auto 200px 200px;
 }
-.delete-container{
+
+.delete-container {
     height: 90vh;
     width: 40%;
-    padding:60px;
+    padding: 60px;
     text-align: center;
     margin: 20px auto 100px auto;
     background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
 }
+
+/*MENU CSS*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap');
+
+/*body{ background:url(https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1776&q=80);*/
+/*  background-size:cover;*/
+/*  background-position:right;*/
+/*  background-attachment:fixed;*/
+/*}*/
+#header {
+    margin: 20px;
+}
+
+#header > h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+#header > p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.menu-container {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px 200px 40px;
+    background-image: url("https://www.publitech.com/wp-content/uploads/2021/01/Food-services-1-1024x1024.jpg");
+    background-size: cover;
+}
+
+.menu-card {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-bottom: 60px;
+}
+
+.menu-card > div {
+    box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.menu-card-image {
+    width: 400px;
+    height: 250px;
+}
+
+.menu-card-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.menu-card-text {
+    margin: -30px auto;
+    margin-bottom: -50px;
+    height: 340px;
+    width: 300px;
+    background-color: #1D1C20;
+    color: #fff;
+    padding: 20px;
+}
+
+.menu-card-meal-type {
+    font-style: italic;
+}
+
+.menu-card-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.menu-card-body {
+    font-size: 1.25rem;
+}
+
+.menu-card-price {
+    width: 130px;
+    height: 100px;
+    background-color: #970C0A;
+    color: #fff;
+    margin-left: auto;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*CHEFS CSS*/
+
+.area-container{
+    width: 100%;
+    padding: 200px;
+    margin:  auto;
+
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.area-container::before {
+  content: "";
+  position: absolute;
+  top: 5.4%;
+  left: 0;
+  width: 100%;
+  height: 88%;
+  background-color: rgba(0, 0, 0, 0.7); /* Set the background color with opacity (0.0 to 1.0) */
+}
+.image-area
+{
+
+}
+
+.img-wrapper
+{
+    border-radius: 20px;
+	width: 300px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+
+.img-wrapper:before
+{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 180%;
+	height: 100%;
+	width: 100%;
+	background: rgba(255,255,255,.3);
+	z-index: 1;
+	transform: skew(45deg);
+	transition: .5s;
+}
+
+.img-wrapper:hover:before
+{
+	left: -180%;
+}
+
+.img-wrapper img
+{
+	height: 400px;
+	width: 300px;
+	filter: grayscale(100%);
+	transition: 2s;
+}
+.img-wrapper:hover img
+{
+	filter: grayscale(0%);
+	transform: scale(1.1);
+}
+
+.img-wrapper h2
+{
+	background: tomato;
+	font-family: Poppins;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 10px 0;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	transform: perspective(400px) rotateY(90deg);
+	transform-origin: right;
+	transition: 1s;
+}
+
+.img-wrapper:hover h2
+{
+	transform: perspective(400px) rotateY(0deg);
+}
+
+.img-wrapper ul
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: rgba(255,255,255,0);
+}
+
+.img-wrapper ul li
+{
+	background: #333;
+    opacity: 0.7;
+	height: 40px;
+	width: 200px;
+    color: white;
+    padding: 0  10px 10px 10px;
+	text-align: center;
+	line-height: 40px;
+	transform: perspective(800px) rotateY(90deg);
+	transition: .5s;
+	transform-origin: left;
+}
+
+.img-wrapper:hover ul li
+{
+	transform: perspective(800px) rotateY(0deg);
+}
+
+.img-wrapper:hover ul li:nth-child(1)
+{
+	transition-delay: .2s;
+}
+
+.img-wrapper:hover ul li:nth-child(2)
+{
+	transition-delay: .6s;
+}
+
+.img-wrapper:hover ul li:nth-child(3)
+{
+	transition-delay: .8s;
+}
+
+.img-wrapper:hover ul li:nth-child(4)
+{
+	transition-delay: 1s;
+}
+
+.img-wrapper ul li a
+{
+	color: tomato;
+	background: rgba(255,255,255,0);
+}
+
+.img-wrapper ul li i
+{
+	color: tomato;
+	background: rgba(255,255,255,0);
+}
+
+.img-wrapper ul li i:hover
+{
+	color: #fff;
+	background: rgba(255,255,255,0);
+}
+
+
 
 

@@ -1,0 +1,21 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+
+        <div class="menu-container">
+            {% for food in foods %}
+            <div class="menu-card">
+                <div class="menu-card-image">
+                    <img src="{{ food.food_img }}" alt="">
+                </div>
+                <div class="menu-card-text">
+                    <p class="menu-card-meal-type">{{food.food_type}}</p>
+                    <h2 class="menu-card-title">{{ food.food_name }}</h2>
+                    <p class="menu-card-body">{{ food.description }}</p>
+                </div>
+                <div class="menu-card-price">${{ food.price }}</div>
+            </div>
+                {% endfor %}
+        </div>
+{% endblock %}
