@@ -228,3 +228,11 @@ def download_book(request, pk):
     except EBook.DoesNotExist:
         # Handle the case when the EBook object does not exist in the database
         return HttpResponse('Error: EBook not found.', status=404)
+
+
+def details_book(request, pk):
+    book=EBook.objects.filter(pk=pk).get()
+    context={
+        'book': book
+    }
+    return render(request, 'books/details_book.html', context)

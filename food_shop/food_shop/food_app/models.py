@@ -154,6 +154,9 @@ class CookedFood(models.Model):
         decimal_places=2
     )
 
+    def __str__(self):
+        return self.food_name
+
 
 class Chef(models.Model):
     CHOICES = (
@@ -199,6 +202,10 @@ class Chef(models.Model):
         blank=False,
         null=False
     )
+
+
+    def __str__(self):
+        return f' {self.first_name} - {self.chef_degree}'
 
 
 class EBook(models.Model):

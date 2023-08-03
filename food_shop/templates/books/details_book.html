@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div class="details-card-container">
+        <div class="card mb-3" style="max-width: 80%;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                    <img src="{{ book.cover_image }}" class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text"><b>Description: </b>{{ book.description }}</p>
+                    <p class="card-text"><b>Chef/Author: </b>{{ book.chef.first_name}} {{ book.chef.last_name }}</p>
+                    <p class="card-text"><b>Total dishes: </b>{{ book.total_dishes }}</p>
+                    <p class="card-text"><b>Breakfast dishes: </b>{{ book.total_breakfast_dishes }}</p>
+                    <p class="card-text"><b>Lunch dishes: </b>{{book.total_lunch_dishes  }}</p>
+                    <p class="card-text"><b>Dinner dishes: </b>{{ book.total_dinner_dishes }}</p>
+
+                    <p class="card-text">
+                        <a href="{% url 'download-book' pk=book.pk %}" class="btn btn-primary">Download</a>
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -18,7 +18,7 @@
                 <p class="card-text"><b>Total Dishes: </b> {{ book.total_dishes }}</p>
 
                 <a href="{% url 'download-book' pk=book.pk %}" class="btn btn-primary">Download</a>
-                <a href="" class="btn btn-primary">Details</a>
+                <a href="{% url 'details-book' pk=book.pk %}" class="btn btn-primary">Details</a>
             </div>
         </div>
     {% endfor %}
