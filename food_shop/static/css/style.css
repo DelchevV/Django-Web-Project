@@ -585,7 +585,28 @@ nav .nav-link:hover {
 	background: rgba(255,255,255,0);
 }
 
-.book{
+@media (max-width: 1670px) {
+    nav .nav-item {
+       display: block;
+        color: red;
+    }
+    nav .nav-item:nth-child(6){
+        margin-left: 10%;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    nav .nav-tabs {
+        display: block;
+        font-size: 20px;
+        text-align: center;
+       flex-direction: column;
+    }
+    nav .nav-item:nth-child(6){
+        margin-left: 0px;
+    }
+
 
 }
 
