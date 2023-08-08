@@ -21,8 +21,9 @@ def is_only_letters(value):
 # Create your models here.
 class CustomUser(auth_models.AbstractUser):
     age = models.PositiveIntegerField(
-        null=False,
-        blank=False,
+        null=True
+        ,
+        blank=True,
         validators=[is_old_enough]
     )
 

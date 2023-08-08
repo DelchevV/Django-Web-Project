@@ -179,7 +179,7 @@ class FeedbackView(LoginRequiredMixin, FormView):
         # Redirect to the success page after sending the email
         return super().form_valid(form)
 
-
+@login_required()
 def menu(request):
     foods = CookedFood.objects.all()
     context = {

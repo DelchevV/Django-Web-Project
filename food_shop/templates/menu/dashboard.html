@@ -12,7 +12,7 @@
                 <div class="menu-card-text">
                     <p class="menu-card-meal-type">{{food.food_type}}</p>
                     <h2 class="menu-card-title">{{ food.food_name }}</h2>
-                    <p class="menu-card-body">{{ food.description }}</p>
+                    <p class="menu-card-body">{{ food.description | truncatewords:10 }}</p>
                 </div>
                 <div class="menu-card-price">${{ food.price }}</div>
             </div>

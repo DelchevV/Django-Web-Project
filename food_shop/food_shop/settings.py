@@ -91,9 +91,13 @@ EMAIL_HOST_PASSWORD = 'vajjkfaquspfzehk'
 print(os.environ.get("DB_HOST", 'didnt found it'))
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "food_bites",
+        "USER": "vesko",
+        "PASSWORD": "123",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 

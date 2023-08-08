@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from food_shop.food_app.models import CookedFood, Chef, EBook
+from food_shop.food_app.models import CookedFood, Chef, EBook, CustomUser
 
 
 # Creates a drag for the price filter
@@ -71,6 +71,7 @@ class CookedFoodAdmin(admin.ModelAdmin):
     ordering = ('price',)
 
 
+admin.site.register(CustomUser)
 admin.site.register(CookedFood, CookedFoodAdmin)
 admin.site.register(Chef, ChefAdmin)
 admin.site.register(EBook, EbookAdmin)
