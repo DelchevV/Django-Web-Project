@@ -20,13 +20,13 @@
                     <p class="card-text"><b>Preparation time: </b>{{ recipe.prep_time }}min</p>
                     <p class="card-text"><b>Cooking time: </b>{{ recipe.cook_time }}min</p>
                     <p class="card-text"><b>Serving: </b>{{ recipe.serving_way }}</p>
-                    {% if recipe.author.pk == user.pk %}
+                    {% if recipe.author.pk == user.pk or user.is_staff %}
                     <p class="card-text">
                         <a href="{% url 'edit-recipe' pk=recipe.pk %}" class="btn btn-primary">Edit</a>
                         <a href="{% url 'delete-recipe' pk=recipe.pk %}" class="btn btn-primary">Delete</a>
                     </p>
                     {% endif %}
-                    <p class="card-text"><small class="text-body-secondary">Created by: {{ recipe.author }}</small></p>
+                    <p class="card-text"><small class="text-body-secondary">Created by: {{ recipe.author.username }}</small></p>
                 </div>
             </div>
         </div>

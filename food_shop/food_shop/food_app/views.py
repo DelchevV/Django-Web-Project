@@ -69,8 +69,14 @@ def index(request):
 @login_required
 def profile_details(request):
     user = request.user
+    recipes = Recipe.objects.all()
+    books = EBook.objects.all()
+    chefs = Chef.objects.all()
     context = {
-        'user': user
+        'user': user,
+        'books': books,
+        'recipes': recipes,
+        'chefs': chefs
     }
     return render(request, 'users/profile-details.html', context)
 

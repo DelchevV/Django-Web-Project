@@ -13,7 +13,7 @@
 
 
         <p class="profile__username">{{ user.email }}</p>
-        <hr>
+        <hr class="style-eight">
         <h1 class="profile__username">Age: {{ user.age }}</h1>
         <h1 class="profile__username">Bio: {{ user.bio }}</h1>
         <h1 class="profile__username">Birth Date: {{ user.birth_date }}</h1>
@@ -26,15 +26,19 @@
             <a href="{% url 'feedback' %}" class="btn btn-primary">Give FeedBack</a>
         </div>
         {% if user.is_staff %}
-            <hr>
-            <h1 class="profile__username">Staff section</h1>
-            <div class="profile__details">
-                <a href="{% url 'create-chef' %}" class="btn btn-primary">Add Chef</a>
-                <a href="{% url 'create-book' %}" class="btn btn-primary">Add Book</a>
+            <hr class="style-eight">
+            <div class="profile__details staff" >
+                <h1 class="profile__username">--- Staff section ---</h1>
+                <a href="{% url 'create-chef' %}" class="btn btn-danger">Add Chef</a>
+                <a href="{% url 'create-book' %}" class="btn btn-danger">Add Book</a>
+                <hr class="style-eight">
+                <h1 class="profile__username">Total Chefs: {{ chefs.count }}</h1>
+                <h1 class="profile__username">Total Recipes: {{ recipes.count }}</h1>
+                <h1 class="profile__username">Total Books: {{ books.count }}</h1>
             </div>
         {% endif %}
-        <hr>
-                <h1 class="profile__username">Last Login: {{ user.last_login | time:'H:i' }}</h1>
+        <hr class="style-eight">
+        <h1 class="profile__username">Last Login: {{ user.last_login | time:'H:i' }}</h1>
         <!-- Rest of the content -->
     </div>
 
