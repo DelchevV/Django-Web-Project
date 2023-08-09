@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import CustomUser, Recipe, Feedback
+from .models import CustomUser, Recipe, Feedback, EBook, Chef
 
 
 class RegisterUserModelForm(forms.ModelForm):
@@ -50,4 +50,16 @@ class FeedBackModelForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = '__all__'
-        exclude=['user']
+        exclude = ['user']
+
+
+class BookModelForm(forms.ModelForm):
+    class Meta:
+        model = EBook
+        fields = '__all__'
+
+
+class ChefModelForm(forms.ModelForm):
+    class Meta:
+        model = Chef
+        fields = '__all__'

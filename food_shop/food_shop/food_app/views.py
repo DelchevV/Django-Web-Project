@@ -9,7 +9,7 @@ from .models import CustomUser, Recipe, Feedback, EBook, CookedFood, Chef
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from .forms import RegisterUserModelForm, ProfileUpdateModelForm, RecipeModelForm, RecipeEditModel, \
-    RecipeCreateModelForm, FeedBackModelForm
+    RecipeCreateModelForm, FeedBackModelForm, BookModelForm, ChefModelForm
 from django.views import generic as views
 from django.views.generic import FormView
 
@@ -82,7 +82,6 @@ class RecipeCreateView(LoginRequiredMixin, views.CreateView):
     form_class = RecipeCreateModelForm
     template_name = 'recipes/create-recipe.html'
     success_url = reverse_lazy('dashboard')
-    print("hey we are here")
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -179,6 +178,7 @@ class FeedbackView(LoginRequiredMixin, FormView):
         # Redirect to the success page after sending the email
         return super().form_valid(form)
 
+
 @login_required()
 def menu(request):
     foods = CookedFood.objects.all()
@@ -194,6 +194,16 @@ def chefs(request):
         'chefs': chefs
     }
     return render(request, 'chefs/dashboard.html', context)
+
+
+class CreateChef(LoginRequiredMixin, views.CreateView):
+    model = Chef
+    template_name = 'chefs/create.html'
+    form_class = ChefModelForm
+    success_url = reverse_lazy('profile-details')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 
 def books(request):
@@ -231,8 +241,18 @@ def download_book(request, pk):
 
 
 def details_book(request, pk):
-    book=EBook.objects.filter(pk=pk).get()
-    context={
+    book = EBook.objects.filter(pk=pk).get()
+    context = {
         'book': book
     }
     return render(request, 'books/details_book.html', context)
+
+
+class CreateBook(LoginRequiredMixin, views.CreateView):
+    model = EBook
+    template_name = 'books/create.html'
+    form_class = BookModelForm
+    success_url = reverse_lazy('profile-details')
+
+    def form_valid(self, form):
+        return super().form_valid(form)

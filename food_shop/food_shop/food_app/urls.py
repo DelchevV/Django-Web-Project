@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import Register, LogOut, LogIn, index, profile_details, ProfileUpdate, RecipeCreateView, dashboard, \
-    RecipeEdit, RecipeDelete, delete_error, details, ProfileDelete, dashboard_own, FeedbackView, menu, chefs, books, download_book, details_book
+    RecipeEdit, RecipeDelete, delete_error, details, ProfileDelete, dashboard_own, FeedbackView, menu, chefs, books, \
+    download_book, details_book, CreateBook, CreateChef
 
 urlpatterns = [
     path('', index, name='index'),
@@ -20,7 +21,9 @@ urlpatterns = [
     path('profile/feedback/', FeedbackView.as_view(), name='feedback'),
     path('menu/', menu, name='menu'),
     path('chefs/', chefs, name='chefs'),
+    path('chef/create/', CreateChef.as_view(), name='create-chef'),
     path('books/', books, name='books'),
     path('books/download/<int:pk>/', download_book, name='download-book'),
-    path('books/details/<int:pk>/', details_book, name='details-book')
+    path('books/details/<int:pk>/', details_book, name='details-book'),
+    path('books/create/', CreateBook.as_view(), name='create-book'),
 ]

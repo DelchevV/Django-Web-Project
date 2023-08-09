@@ -2,7 +2,12 @@
 {% block content %}
     <div class="profile">
         <div class="profile__image">
-            <img src="{{ user.profile_picture }}" alt="User Avatar">
+            {% if user.profile_picture %}
+                <img src="{{ user.profile_picture }}" alt="User Avatar">
+            {% else %}
+                <img src="https://ladyinredthefilm.files.wordpress.com/2014/04/facebook-anonymous-silhouette.png"
+                     alt="User Avatar">
+            {% endif %}
         </div>
         <h1 class="profile__name">{{ user.first_name }} {{ user.last_name }}</h1>
 
@@ -20,7 +25,16 @@
             <a href="{% url 'profile-delete' pk=user.pk %}" class="btn btn-primary">Delete Profile</a>
             <a href="{% url 'feedback' %}" class="btn btn-primary">Give FeedBack</a>
         </div>
-
+        {% if user.is_staff %}
+            <hr>
+            <h1 class="profile__username">Staff section</h1>
+            <div class="profile__details">
+                <a href="{% url 'create-chef' %}" class="btn btn-primary">Add Chef</a>
+                <a href="{% url 'create-book' %}" class="btn btn-primary">Add Book</a>
+            </div>
+        {% endif %}
+        <hr>
+                <h1 class="profile__username">Last Login: {{ user.last_login | time:'H:i' }}</h1>
         <!-- Rest of the content -->
     </div>
 

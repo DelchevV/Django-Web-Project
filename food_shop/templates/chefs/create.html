@@ -1,0 +1,11 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div class="form-container">
+        <form action="{% url 'create-chef' %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Add new Chef</button>
+        </form>
+    </div>
+
+{% endblock %}
