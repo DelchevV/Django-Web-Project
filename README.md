@@ -23,7 +23,7 @@ The **Healthy Foods** web app is designed to provide users with a platform to ex
 📊 **Nutritional Insights**: Get insights into the nutritional value of recipes, including calorie counts, macronutrients, and more.
 
 ## Installation
-`python3 manage.py startserver`
+
 1. Clone this repository to your local machine.
 2. Navigate to the project directory.
 3. Create a virtual environment: `python3 -m venv venv`
