@@ -36,7 +36,6 @@ The **Healthy Foods** web app is designed to provide users with a platform to ex
 
 🐍 **Python**: Programming language used for backend development.
 🌐 **Django**: High-level web framework for building robust and scalable web applications.
-🚀 **Django Rest Framework**: A powerful toolkit for building Web APIs, enabling seamless frontend-backend communication.
 🔧 **HTML**, **CSS**, **JavaScript**: Frontend technologies for creating an interactive user interface.
 🐘 **PostgreSQL**: Relational database management system for storing recipe data.
 🐋 **Docker**: Containerization technology for seamless deployment and management.
