@@ -2,13 +2,13 @@ from django.contrib.auth import views as auth_views, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.http import HttpResponseForbidden, HttpResponseRedirect, HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 import requests
-from .models import CustomUser, Recipe, Feedback, EBook, CookedFood, Chef
+from .models import CustomUser, Recipe, EBook, CookedFood, Chef
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-from .forms import RegisterUserModelForm, ProfileUpdateModelForm, RecipeModelForm, RecipeEditModel, \
+from .forms import RegisterUserModelForm, ProfileUpdateModelForm, RecipeEditModel, \
     RecipeCreateModelForm, FeedBackModelForm, BookModelForm, ChefModelForm
 from django.views import generic as views
 from django.views.generic import FormView
@@ -66,7 +66,7 @@ def index(request):
     return render(request, 'common/index.html', context)
 
 
-@login_required
+@login_required()
 def profile_details(request):
     user = request.user
     recipes = Recipe.objects.all()
@@ -98,6 +98,7 @@ class RecipeCreateView(LoginRequiredMixin, views.CreateView):
         return super().form_valid(form)
 
 
+@login_required()
 def dashboard(request):
     recipes = Recipe.objects.all()
     context = {
@@ -158,6 +159,7 @@ class ProfileDelete(LoginRequiredMixin, UserPassesTestMixin, views.DeleteView):
         return self.get_object() == self.request.user
 
 
+@login_required()
 def dashboard_own(request):
     user_pk = request.user.pk
     recipes = Recipe.objects.filter(pk=user_pk).all()
@@ -194,6 +196,7 @@ def menu(request):
     return render(request, 'menu/dashboard.html', context)
 
 
+@login_required()
 def chefs(request):
     chefs = Chef.objects.all()
     context = {
@@ -212,6 +215,7 @@ class CreateChef(LoginRequiredMixin, views.CreateView):
         return super().form_valid(form)
 
 
+@login_required()
 def books(request):
     books = EBook.objects.all()
     context = {
@@ -220,6 +224,7 @@ def books(request):
     return render(request, 'books/dashboard.html', context)
 
 
+@login_required()
 def download_book(request, pk):
     try:
         # Retrieve the EBook object from the database using the given ebook_id
@@ -246,6 +251,7 @@ def download_book(request, pk):
         return HttpResponse('Error: EBook not found.', status=404)
 
 
+@login_required()
 def details_book(request, pk):
     book = EBook.objects.filter(pk=pk).get()
     context = {
